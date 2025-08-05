@@ -54,18 +54,72 @@
 
 // EXPRESS CREATION -->>
 
+// let express = require("express");
+
+// let app = express();
+// app.use(express.json())
+
+// app.get("/", (req, res) => {    
+//   res.send({ status: 1, msg: "Hello!" });  // `res` is an object (in Express), and we don't need to use `JSON.stringify` on the response data.
+//                                            // This is because `res.json()` internally converts the data to JSON format
+//                                           // and also sets the appropriate header to tell the browser that the response is of type JSON.
+//     });
+// app.get("/name", (req, res)=>{
+//     res.send({status:2, msg:"Hii Shivi!"});
+// })
+
+// // My own routes -->>
+// app.get("/about", (req, res)=>{
+//     res.send({status:3, msg:"I am A MERN Stack Developer!"});
+// })
+
+// app.post("/Owner",(req, res)=>{
+//     console.log(req.body)  //Object form and key value pairs -->>
+//     res.send(
+//         {
+//             status:4, 
+//             msg:"For Owner!",
+//             bodydata:req.body,
+//             queryData: req.query
+
+//         }
+//     );
+// })
+
+
+
+
+// app.listen(5000)
+
+// app.listen(5000, () => {
+//   console.log("Server running on http://localhost:5000");
+// });
+
+
+
+// PARAMS CREATION -->>
+
+
 let express = require("express");
 
 let app = express();
 app.use(express.json())
 
 app.get("/", (req, res) => {    
-  res.send({ status: 1, msg: "Hello!" });  // `res` is an object (in Express), and we don't need to use `JSON.stringify` on the response data.
-                                           // This is because `res.json()` internally converts the data to JSON format
-                                          // and also sets the appropriate header to tell the browser that the response is of type JSON.
+  res.send({ status: 1, msg: "Hello!" });  
     });
 app.get("/name", (req, res)=>{
     res.send({status:2, msg:"Hii Shivi!"});
+})
+
+
+// Params -->>  Important :)
+
+app.get("/name/:id", (req,res)=>{
+
+    // For access params values -->>>>>
+    let currentId = req.params.id
+    res.send("Hey! I am a Software Developer." + currentId);
 })
 
 // My own routes -->>
@@ -75,14 +129,18 @@ app.get("/about", (req, res)=>{
 
 app.post("/Owner",(req, res)=>{
     console.log(req.body)  //Object form and key value pairs -->>
-    res.send({status:4, msg:"For Owner!", data:req.body});
+    res.send(
+        {
+            status:4, 
+            msg:"For Owner!",
+            bodydata:req.body,
+            queryData: req.query
+
+        }
+    );
 })
 
 
 
 
 app.listen(5000)
-
-// app.listen(5000, () => {
-//   console.log("Server running on http://localhost:5000");
-// });
