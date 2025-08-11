@@ -100,17 +100,17 @@
 // PARAMS CREATION -->>
 
 
-let express = require("express");
+// let express = require("express");
 
-let app = express();
-app.use(express.json())
+// let app = express();
+// app.use(express.json())
 
-app.get("/", (req, res) => {    
-  res.send({ status: 1, msg: "Hello!" });  
-    });
-app.get("/name", (req, res)=>{
-    res.send({status:2, msg:"Hii Shivi!"});
-})
+// app.get("/", (req, res) => {    
+//   res.send({ status: 1, msg: "Hello!" });  
+//     });
+// app.get("/name", (req, res)=>{
+//     res.send({status:2, msg:"Hii Shivi!"});
+// })
 
 
 // Params -->>  Important :)
