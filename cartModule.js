@@ -2,9 +2,9 @@ let addToCart=()=>{
     return "Add To Cart"
 }
 
-// let Setmail=()=>{
-//    return "Set Mail"
-// }
+let Setmail=()=>{
+   return "Set Mail"
+}
 
 // Default exports -->>
 // module.exports = addToCart; // export the function"addToCart" anywhere -->>  
