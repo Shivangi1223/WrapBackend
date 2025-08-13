@@ -130,13 +130,13 @@ app.get("/about", (req, res)=>{
 app.post("/Owner",(req, res)=>{
     console.log(req.body)  //Object form and key value pairs -->>
     res.send(
-        {
-            status:4, 
-            msg:"For Owner!",
-            bodydata:req.body,
-            queryData: req.query
+        // {
+        //     status:4, 
+        //     msg:"For Owner!",
+        //     bodydata:req.body,
+        //     queryData: req.query
 
-        }
+        // }
     );
 })
 
