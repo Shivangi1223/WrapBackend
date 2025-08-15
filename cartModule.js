@@ -11,4 +11,4 @@ let Setmail=()=>{
 
 
 // Nmaed EXPORTS -->> using named exports we can export multiple functions :)
-// module.exports = {addToCart, Setmail}
+module.exports = {addToCart, Setmail}
