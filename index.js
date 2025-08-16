@@ -97,7 +97,57 @@
 
 
 
-// PARAMS CREATION -->>
+// // PARAMS CREATION -->>
+
+
+// let express = require("express");
+
+// let app = express();
+// app.use(express.json())
+
+// app.get("/", (req, res) => {    
+//   res.send({ status: 1, msg: "Hello!" });  
+//     });
+// app.get("/name", (req, res)=>{
+//     res.send({status:2, msg:"Hii Shivi!"});
+// })
+
+
+// // Params -->>  Important :)
+
+// app.get("/name/:id", (req,res)=>{
+
+//     // For access params values -->>>>>
+//     let currentId = req.params.id
+//     res.send("Hey! I am a Software Developer." + currentId);
+// })
+
+// // My own routes -->>
+// app.get("/about", (req, res)=>{
+//     res.send({status:3, msg:"I am A MERN Stack Developer!"});
+// })
+
+// app.post("/Owner",(req, res)=>{
+//     console.log(req.body)  //Object form and key value pairs -->>
+//     res.send(
+//         {
+//             status:4, 
+//             msg:"For Owner!",
+//             bodydata:req.body,
+//             queryData: req.query
+
+//         }
+//     );
+// })
+
+
+
+
+// app.listen(5000)
+
+
+
+// A developer can handle the response in two different ways.-->>
 
 
 let express = require("express");
@@ -127,20 +177,40 @@ app.get("/about", (req, res)=>{
     res.send({status:3, msg:"I am A MERN Stack Developer!"});
 })
 
-app.post("/Owner",(req, res)=>{
+// app.post("/Owner",(req, res)=>{
+//     console.log(req.body)  //Object form and key value pairs -->>
+//     res.send(
+//         {
+//             status:4, 
+//             msg:"For Owner!",
+//             bodydata:req.body,
+//             queryData: req.query
+
+//         }
+//     );
+// })
+
+app.post("/Login",(req, res)=>{
     console.log(req.body)  //Object form and key value pairs -->>
-    res.send(
-        {
-            status:4, 
-            msg:"For Owner!",
-            bodydata:req.body,
-            queryData: req.query
+//     res.send(
+//         {
+//             status:4, 
+//             msg:"For Login API!",
+//             bodydata:req.body,
+//             queryData: req.query
 
-        }
-    );
+//         }
+//     );
+// })
+
+// 200 means your request was successful and the server responded correctly.
+
+res.status(200).json(
+    
+)
+
+
+
 })
-
-
-
 
 app.listen(5000)
