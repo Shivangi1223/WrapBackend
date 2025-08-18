@@ -7,7 +7,7 @@ let Setmail=()=>{
 }
 
 // Default exports -->>
-// module.exports = addToCart; // export the function"addToCart" anywhere -->>  
+module.exports = addToCart; // export the function"addToCart" anywhere -->>  
 
 
 // Nmaed EXPORTS -->> using named exports we can export multiple functions :)
