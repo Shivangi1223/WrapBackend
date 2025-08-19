@@ -168,7 +168,7 @@ app.get("/name", (req, res)=>{
 app.get("/name/:id", (req,res)=>{
 
     // For access params values -->>>>>
-    // let currentId = req.params.id
+    let currentId = req.params.id
     res.send("Hey! I am a Software Developer." + currentId);
 })
 
