@@ -193,13 +193,13 @@ app.get("/about", (req, res)=>{
 app.post("/Login",(req, res)=>{
     console.log(req.body)  //Object form and key value pairs -->>
 //     res.send(
-        {
-            status:4, 
-            msg:"For Login API!",
-            bodydata:req.body,
-            queryData: req.query
+        // {
+        //     status:4, 
+        //     msg:"For Login API!",
+        //     bodydata:req.body,
+        //     queryData: req.query
 
-        }
+        // }
 //     );
 // })
 
