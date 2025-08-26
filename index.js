@@ -291,13 +291,52 @@ const {firstModule, myModule} = require("./FirstModule")
 
 
 
-console.log("Welcome")
-console.log(1+0)
-let l=[12,14,16,14,18]
-l.forEach((value, index)=>{
-    console.log(value, index)
+// console.log("Welcome")
+// console.log(1+0)
+// let l=[12,14,16,14,18]
+// l.forEach((value, index)=>{
+//     console.log(value, index)
+// })
+
+// console.log(firstModule());
+// console.log(myModule());
+// console.log("Shivi");
+
+
+
+// Server creation -->>
+let http = require("http")
+
+// 1.) create server -->>
+let server = http.createServer( (req, res)=>{
+
+    if(req.url=="/news"){
+           let object={
+            status:1,
+            data:[
+                {
+                    newsTitle: 'shivi',
+                    newsDes: 'shivangi'
+                },
+                {
+                    newsTitle: 'IAS shivi',
+                    newsDes: 'IAS shivangi'
+                }
+            ]
+           };
+           res.end(JSON.stringify(object));
+    }
+    if(req.url=="/about"){
+        
+    }
+    if(req.url=="/course"){
+        
+    }
+    if(req.url=="/"){
+        
+    }
+      res.end("Welcome!")
 })
 
-console.log(firstModule());
-console.log(myModule());
-console.log("Shivi");
+//2.) Start server -->>
+server.listen("1000") // http://localhost:1000
