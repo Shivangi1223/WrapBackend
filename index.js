@@ -305,38 +305,74 @@ const {firstModule, myModule} = require("./FirstModule")
 
 
 // Server creation -->>
-let http = require("http")
+// let http = require("http")
 
-// 1.) create server -->>
-let server = http.createServer( (req, res)=>{
+// // 1.) create server -->>
+// let server = http.createServer( (req, res)=>{
 
-    if(req.url=="/news"){
-           let object={
-            status:1,
-            data:[
-                {
-                    newsTitle: 'shivi',
-                    newsDes: 'shivangi'
-                },
-                {
-                    newsTitle: 'IAS shivi',
-                    newsDes: 'IAS shivangi'
-                }
-            ]
-           };
-           res.end(JSON.stringify(object));
-    }
-    if(req.url=="/about"){
+//     if(req.url=="/news"){
+//            let object={
+//             status:1,
+//             data:[
+//                 {
+//                     newsTitle: 'shivi',
+//                     newsDes: 'shivangi'
+//                 },
+//                 {
+//                     newsTitle: 'IAS shivi',
+//                     newsDes: 'IAS shivangi'
+//                 }
+//             ]
+//            };
+//            res.end(JSON.stringify(object));
+//     }
+//     if(req.url=="/about"){
         
-    }
-    if(req.url=="/course"){
+//     }
+//     if(req.url=="/course"){
         
-    }
-    if(req.url=="/"){
+//     }
+//     if(req.url=="/"){
         
-    }
-      res.end("Welcome!")
+//     }
+//       res.end("Welcome!")
+// })
+
+// //2.) Start server -->>
+// server.listen("1000") // http://localhost:1000
+
+
+let express = require("express")
+
+let app = express()
+app.use(express.json())
+
+app.get("/", (req, res) => {
+    res.send({ status: 1, message: "Home page api" })
 })
 
-//2.) Start server -->>
-server.listen("1000") // http://localhost:1000
+app.get("/news", (req, res) => {
+    res.send({ status: 2, message: "News api" })
+})
+
+app.get("/products", (req, res) => {
+    res.send({ status: 10, message: "Welcome to my web page!" })
+})
+
+app.get("/news/:id", (req, res) => {  // params example
+    res.send("News details API")
+})
+
+// 👇 this was your misplaced code; now fixed in a new route
+app.post("/test", (req, res) => {
+    res.send({
+        status: 5,
+        message: "Hey Shivi!",
+        bodyData: req.body,   // data from body
+        queryData: req.query  // data from query string
+    })
+})
+
+app.listen(1000, () => {
+    console.log("Hey Shivi!") //http://localhost:1000
+})
