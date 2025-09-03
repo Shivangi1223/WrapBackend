@@ -367,12 +367,21 @@ app.get("/news/:id", (req, res) => {  // params example
 
 // 👇 this was your misplaced code; now fixed in a new route
 app.post("/test", (req, res) => {
-    res.send({
+    console.log(req.body) //object -->>
+    
+    // For response -->>
+    res.status(200).json({
         status: 5,
         message: "Hey Shivi!",
         bodyData: req.body,   // data from body
         queryData: req.query  // data from query string
     })
+    // res.send({
+    //     status: 5,
+    //     message: "Hey Shivi!",
+    //     bodyData: req.body,   // data from body
+    //     queryData: req.query  // data from query string
+    // })
 })
 
 app.listen(1000, () => {
