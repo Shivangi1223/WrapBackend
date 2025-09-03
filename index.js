@@ -360,7 +360,9 @@ app.get("/products", (req, res) => {
 })
 
 app.get("/news/:id", (req, res) => {  // params example
-    res.send("News details API")
+    // For access params value -->>
+    let currentId = req.params.id
+    res.send("News details API" + currentId)
 })
 
 // 👇 this was your misplaced code; now fixed in a new route
