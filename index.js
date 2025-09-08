@@ -1,5 +1,6 @@
 // // // const {addToCart, Setmail} = require("./cartModule");
 
+const { status } = require("init")
 const {firstModule, myModule} = require("./FirstModule")
 
 
@@ -346,12 +347,34 @@ let express = require("express")
 
 let app = express()
 app.use(express.json())
+let myToken="12345"
 
 
 // Create Middleware -->>
+// let checkToken=(req,res,next)=>{
+//     console.log("Hii!!")
+//     next();  //next() is a function that move's to the next middleware or route handler OR pass the control to the next step -->>
+// }
+
 let checkToken=(req,res,next)=>{
-    console.log("Hii!!")
-    next();  //next() is a function that move's to the next middleware or route handler OR pass the control to the next step -->>
+    console.log(req.query.token)
+    if(req.query.token==" " || req.query.token==undefined){
+        return res.send(
+        {
+        status:0,
+        msg:"Please fill the token"
+        }
+    )
+    }
+    if(req.query.token!=myToken){
+        return res.send(
+        {
+        status:2,
+        msg:"Please fill the correct token"
+        }
+    )
+    }
+    next();
 }
 app.use(checkToken)  // Middleware
 
