@@ -351,6 +351,7 @@ app.use(express.json())
 // Create Middleware -->>
 let checkToken=(req,res,next)=>{
     console.log("Hii!!")
+    next();  //next() is a function that move's to the next middleware or route handler OR pass the control to the next step -->>
 }
 app.use(checkToken)  // Middleware
 
