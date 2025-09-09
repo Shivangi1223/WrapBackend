@@ -378,6 +378,7 @@ let checkToken=(req,res,next)=>{
 }
 app.use(checkToken)  // Middleware
 
+
 app.get("/", (req, res) => {
     res.send({ status: 1, message: "Home page api" })
 })
@@ -396,7 +397,7 @@ app.get("/news/:id", (req, res) => {  // params example
     res.send("News details API" + currentId)
 })
 
-// 👇 this was your misplaced code; now fixed in a new route
+// this was your misplaced code; now fixed in a new route
 app.post("/test", (req, res) => {
     console.log(req.body) //object -->>
     
