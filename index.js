@@ -348,6 +348,7 @@ let express = require("express")
 let app = express()
 app.use(express.json())
 let myToken="12345"
+let myPass="12345"
 
 
 // Create Middleware -->>
@@ -377,6 +378,26 @@ let checkToken=(req,res,next)=>{
     next();
 }
 app.use(checkToken)  // Middleware
+
+app.use((req,res,next)=>{
+    if(req.query.pass==" " || req.query.pass==undefined){
+        return res.send(
+        {
+        status:0,
+        msg:"Please fill the Password"
+        }
+    )
+    }
+    if(req.query.pass!=myPass){
+        return res.send(
+        {
+        status:2,
+        msg:"Please fill the correct Password"
+        }
+    )
+    }
+    next();
+})
 
 
 app.get("/", (req, res) => {
