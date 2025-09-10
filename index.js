@@ -344,11 +344,16 @@ const {firstModule, myModule} = require("./FirstModule")
 
 
 let express = require("express")
+require("dotenv").config()
+const { checkToken } = require("./checkTokenMiddleware")
 
 let app = express()
+
+console.log(process.env.myToken)
+
 app.use(express.json())
-let myToken="12345"
-let myPass="12345"
+// let myToken="12345"
+// let myPass="12345"
 
 
 // Create Middleware -->>
@@ -357,26 +362,26 @@ let myPass="12345"
 //     next();  //next() is a function that move's to the next middleware or route handler OR pass the control to the next step -->>
 // }
 
-let checkToken=(req,res,next)=>{
-    console.log(req.query.token)
-    if(req.query.token==" " || req.query.token==undefined){
-        return res.send(
-        {
-        status:0,
-        msg:"Please fill the token"
-        }
-    )
-    }
-    if(req.query.token!=myToken){
-        return res.send(
-        {
-        status:2,
-        msg:"Please fill the correct token"
-        }
-    )
-    }
-    next();
-}
+// let checkToken=(req,res,next)=>{
+//     console.log(req.query.token)
+//     if(req.query.token==" " || req.query.token==undefined){
+//         return res.send(
+//         {
+//         status:0,
+//         msg:"Please fill the token"
+//         }
+//     )
+//     }
+//     if(req.query.token!=myToken){
+//         return res.send(
+//         {
+//         status:2,
+//         msg:"Please fill the correct token"
+//         }
+//     )
+//     }
+//     next();
+// }
 app.use(checkToken)  // Middleware
 
 app.use((req,res,next)=>{
@@ -400,11 +405,11 @@ app.use((req,res,next)=>{
 })
 
 
-app.get("/", (req, res) => {
+app.get("/", checkToken, (req, res) => {
     res.send({ status: 1, message: "Home page api" })
 })
 
-app.get("/news", (req, res) => {
+app.get("/news", checkToken, (req, res) => {
     res.send({ status: 2, message: "News api" })
 })
 
@@ -437,6 +442,8 @@ app.post("/test", (req, res) => {
     // })
 })
 
-app.listen(1000, () => {
-    console.log("Hey Shivi!") //http://localhost:1000
-})
+// app.listen(1000, () => {
+//     console.log("Hey Shivi!") //http://localhost:1000
+// })
+
+app.listen(process.env.PORT || 5000)
