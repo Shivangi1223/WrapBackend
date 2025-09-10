@@ -387,10 +387,10 @@ app.use(checkToken)  // Middleware
 app.use((req,res,next)=>{
     if(req.query.pass==" " || req.query.pass==undefined){
         return res.send(
-        {
-        status:0,
-        msg:"Please fill the Password"
-        }
+        // {
+        // status:0,
+        // msg:"Please fill the Password"
+        // }
     )
     }
     if(req.query.pass!=myPass){
