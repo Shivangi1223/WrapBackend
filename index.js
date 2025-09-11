@@ -343,7 +343,7 @@ const {firstModule, myModule} = require("./FirstModule")
 // server.listen("1000") // http://localhost:1000
 
 
-let express = require("express")
+// let express = require("express")
 require("dotenv").config()
 const { checkToken } = require("./checkTokenMiddleware")
 
