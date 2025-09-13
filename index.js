@@ -419,7 +419,7 @@ app.get("/products", (req, res) => {
 
 app.get("/news/:id", (req, res) => {  // params example
     // For access params value -->>
-    let currentId = req.params.id
+    // let currentId = req.params.id
     res.send("News details API" + currentId)
 })
 
