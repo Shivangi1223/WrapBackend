@@ -4,7 +4,7 @@ let firstModule = ()=>{
 
 
 let myModule = ()=>{
-    // return 10;
+    return 10;
 }
 
 // module.exports= firstModule;  // FOR DEFAULT EXPORTS IF WE CALL SINGLE FUNCTIONS -->>
