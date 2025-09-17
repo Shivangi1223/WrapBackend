@@ -6,7 +6,7 @@ let checkToken=(req,res,next)=>{
         return res.send(
         {
         status:0,
-        msg:"Please fill the token"
+        // msg:"Please fill the token"
         }
     )
     }
